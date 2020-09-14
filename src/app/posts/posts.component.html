@@ -1,0 +1,35 @@
+<div class="posts" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between">
+    
+    <mat-card *ngFor="let post of posts" class="post card" fxFlex.xs="100%" fxFlex.sm="49%" fxFlex="24%">
+        <mat-card-header>
+          <div mat-card-avatar class="card-avatar">
+              <img mat-card-image class="image-avatar" src="{{ post.owner.picture }}">
+        </div> 
+        <mat-card-title>{{ post.owner.firstName}} {{ post.owner.lastName}}</mat-card-title>
+                      
+         
+        </mat-card-header>
+        <img mat-card-image class="image" src="{{ post.image }}">
+        <mat-card-content class="content">
+        <mat-card-title>{{ post.text }}</mat-card-title>
+          <span class="tags" *ngFor="let tag of post.tags">
+            <a href="{{ tag }}" > #{{ tag  }}</a>&nbsp;
+          </span>
+         
+        </mat-card-content>
+        <mat-card-actions>
+            <span class="likes">
+                <span matBadge="{{ post.likes }}" matBadgeOverlap="false"><mat-icon>favorite</mat-icon></span>
+              </span>
+              <span class="date">
+                  {{ post.publishDate | date }}
+              </span>
+            
+          <!-- <button mat-button>SHARE</button> -->
+        </mat-card-actions>
+      </mat-card>
+</div>
+
+
+
+
